@@ -1,48 +1,300 @@
-document.querySelectorAll('a[href^="#"]').forEach(link=>{
-  link.addEventListener('click',e=>{
-    const target=document.querySelector(link.getAttribute('href'));
-    if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth'});}
-  });
-});
+document.addEventListener("DOMContentLoaded", () => {
 
-const play=document.querySelector('.play');
-play?.addEventListener('click',()=>{
-  play.classList.toggle('active');
-  play.innerHTML=play.classList.contains('active') ? '<span>Ⅱ</span>' : '<span>▶</span>';
-});
+    const players = document.querySelectorAll(".video-card");
 
-const revealTargets=document.querySelectorAll(
-  '.section-head,.project,.about-layout,.contact-content,.contact-grid,.hero-copy,.hero-visual,footer'
-);
-revealTargets.forEach(el=>el.classList.add('reveal'));
+    function formatTime(seconds) {
+        if (!Number.isFinite(seconds)) return "0:00";
 
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach((entry,i)=>{
-    if(entry.isIntersecting){
-      entry.target.style.transitionDelay=(Math.min(i%4,3)*90)+'ms';
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+
+        return `${mins}:${secs.toString().padStart(2, "0")}`;
     }
-  });
-},{threshold:.12});
-revealTargets.forEach(el=>observer.observe(el));
 
-if (window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
-  document.querySelectorAll('.project-media').forEach(media=>{
-    media.addEventListener('mousemove',e=>{
-      const r=media.getBoundingClientRect();
-      const x=(e.clientX-r.left)/r.width-.5;
-      const y=(e.clientY-r.top)/r.height-.5;
-      media.style.transform=`scale(.975) translate(${x*5}px,${y*5}px)`;
-    });
-    media.addEventListener('mouseleave',()=>{
-      media.style.transform='';
-    });
-  });
-}
+    function pauseOtherVideos(currentVideo) {
+        document.querySelectorAll(".portfolio-video").forEach(video => {
+            if (video !== currentVideo && !video.paused) {
+                video.pause();
+            }
+        });
+    }
 
-window.addEventListener('scroll',()=>{
-  const header=document.querySelector('.header');
-  if(window.scrollY>30) header.style.boxShadow='0 12px 35px #0005';
-  else header.style.boxShadow='none';
-});
+    players.forEach(player => {
+
+        const video = player.querySelector(".portfolio-video");
+        const centerButton = player.querySelector(".video-center");
+        const playButton = player.querySelector(".video-toggle");
+        const muteButton = player.querySelector(".video-mute");
+        const fullscreenButton = player.querySelector(".video-fullscreen");
+
+        const progress = player.querySelector(".video-progress");
+        const progressFill = player.querySelector(".video-progress-fill");
+        const time = player.querySelector(".video-time");
+
+        if (!video) return;
+
+        /*
+         * Начальное состояние
+         */
+        video.muted = true;
+        video.playsInline = true;
+
+        function updatePlayButton() {
+            const playing = !video.paused && !video.ended;
+
+            player.classList.toggle("is-playing", playing);
+
+            if (playButton) {
+                playButton.textContent = playing ? "Ⅱ" : "▶";
+            }
+
+            if (centerButton) {
+                const icon = centerButton.querySelector("span");
+
+                if (icon) {
+                    icon.textContent = playing ? "Ⅱ" : "▶";
+                }
+            }
+        }
+
+        function updateMuteButton() {
+            if (!muteButton) return;
+
+            muteButton.textContent =
+                video.muted || video.volume === 0
+                    ? "🔇"
+                    : "🔊";
+        }
+
+        function updateProgress() {
+
+            if (!video.duration || !Number.isFinite(video.duration)) {
+                if (time) {
+                    time.textContent = "0:00 / 0:00";
+                }
+
+                return;
+            }
+
+            const percent =
+                (video.currentTime / video.duration) * 100;
+
+            if (progressFill) {
+                progressFill.style.width = percent + "%";
+            }
+
+            if (time) {
+                time.textContent =
+                    `${formatTime(video.currentTime)} / ${formatTime(video.duration)}`;
+            }
+        }
+
+        async function togglePlayback() {
+
+            if (video.paused) {
+
+                pauseOtherVideos(video);
+
+                try {
+                    await video.play();
+                } catch (error) {
+                    console.error("Ошибка воспроизведения:", error);
+                }
+
+            } else {
+
+                video.pause();
+            }
+        }
+
+        /*
+         * PLAY / PAUSE
+         */
+        playButton?.addEventListener("click", event => {
+            event.stopPropagation();
+            togglePlayback();
+        });
+
+        centerButton?.addEventListener("click", event => {
+            event.stopPropagation();
+            togglePlayback();
+        });
+
+        /*
+         * Клик прямо по видео
+         */
+        video.addEventListener("click", togglePlayback);
+
+        /*
+         * MUTE
+         */
+        muteButton?.addEventListener("click", event => {
+
+            event.stopPropagation();
+
+            video.muted = !video.muted;
+
+            /*
+             * Иногда браузер держит volume = 0.
+             */
+            if (!video.muted && video.volume === 0) {
+                video.volume = 1;
+            }
+
+            updateMuteButton();
+        });
+
+        /*
+         * PROGRESS BAR
+         */
+        progress?.addEventListener("click", event => {
+
+            event.stopPropagation();
+
+            if (!video.duration) return;
+
+            const rect = progress.getBoundingClientRect();
+
+            const position =
+                (event.clientX - rect.left) /
+                rect.width;
+
+            video.currentTime =
+                Math.max(0, Math.min(1, position)) *
+                video.duration;
+        });
+
+        /*
+         * FULLSCREEN
+         */
+        fullscreenButton?.addEventListener("click", async event => {
+
+            event.stopPropagation();
+
+            try {
+
+                /*
+                 * Выход из fullscreen
+                 */
+                if (document.fullscreenElement) {
+
+                    await document.exitFullscreen();
+                    return;
+                }
+
+                /*
+                 * Chrome / Edge / Firefox
+                 */
+                if (player.requestFullscreen) {
+
+                    await player.requestFullscreen();
+                    return;
+                }
+
+                /*
+                 * Safari
+                 */
+                if (player.webkitRequestFullscreen) {
+
+                    player.webkitRequestFullscreen();
+                    return;
+                }
+
+                /*
+                 * iPhone Safari
+                 */
+                if (video.webkitEnterFullscreen) {
+
+                    video.webkitEnterFullscreen();
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Fullscreen error:",
+                    error
+                );
+
+            }
+
+        });
+
+        /*
+         * СОБЫТИЯ VIDEO
+         */
+
+        video.addEventListener("play", updatePlayButton);
+
+        video.addEventListener("pause", updatePlayButton);
+
+        video.addEventListener("ended", updatePlayButton);
+
+        video.addEventListener("timeupdate", updateProgress);
+
+        video.addEventListener("durationchange", updateProgress);
+
+        video.addEventListener("loadedmetadata", () => {
+
+            updateProgress();
+
+            /*
+             * Если файл реально загрузился —
+             * скрываем заглушку SHOWREEL.
+             */
+            player.classList.add("has-video");
+
+        });
+
+        /*
+         * Очень полезно для поиска проблем.
+         */
+        video.addEventListener("error", () => {
+
+            const error = video.error;
+
+            console.error(
+                "Не удалось загрузить видео:",
+                video.currentSrc,
+                error
+            );
+
+        });
+
+        updatePlayButton();
+        updateMuteButton();
+        updateProgress();
+
+    });
+
+
+    /*
+     * Плавная навигация
+     */
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+        link.addEventListener("click", event => {
+
+            const selector =
+                link.getAttribute("href");
+
+            if (!selector || selector === "#") {
+                return;
+            }
+
+            const target =
+                document.querySelector(selector);
+
+            if (!target) return;
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        });
+
+    });
+
+	});

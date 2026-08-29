@@ -512,3 +512,456 @@ footer{
     scroll-behavior:auto!important;
   }
 }
+
+
+/* =========================================================
+   FINAL OVERFLOW / TYPOGRAPHY FIX
+   ========================================================= */
+
+html,body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+}
+
+*,*::before,*::after{
+  min-width:0;
+  max-width:100%;
+}
+
+img,video,iframe,svg{
+  max-width:100%;
+  height:auto;
+}
+
+.header,.hero,.section,footer{
+  width:100%;
+  max-width:100%;
+}
+
+.hero-copy,.hero-visual,.about-layout,.about-copy,
+.contact-content,.contact-grid,.project-grid,.project-info{
+  min-width:0;
+  max-width:100%;
+}
+
+.hero h1,
+.about h2,
+.contact h2,
+.project-info h2{
+  max-width:100%;
+  overflow-wrap:anywhere;
+  word-break:normal;
+  hyphens:auto;
+}
+
+.hero-text,
+.about-copy p,
+.project-info p,
+.contact-grid a,
+.contact-big{
+  max-width:100%;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+
+.contact-grid a{
+  min-width:0;
+}
+
+/* Desktop contact columns must also be allowed to shrink */
+.contact-grid > *{
+  min-width:0;
+}
+
+@media(max-width:900px){
+  .hero h1{
+    font-size:clamp(3rem,11.5vw,6.5rem);
+    letter-spacing:-.075em;
+  }
+
+  .about h2,.contact h2{
+    font-size:clamp(2.8rem,11vw,6rem);
+    letter-spacing:-.065em;
+  }
+
+  .project-info{
+    min-width:0;
+  }
+
+  .project-info h2{
+    font-size:clamp(1.5rem,4vw,2.2rem);
+  }
+}
+
+@media(max-width:600px){
+  .hero h1{
+    font-size:clamp(2.9rem,15vw,5.8rem);
+    line-height:.86;
+    letter-spacing:-.065em;
+    overflow-wrap:normal;
+    word-break:normal;
+  }
+
+  .about h2,.contact h2{
+    font-size:clamp(2.7rem,13.5vw,5.2rem);
+    line-height:.87;
+    letter-spacing:-.06em;
+  }
+
+  .hero-text{
+    max-width:100%;
+    font-size:14px;
+  }
+
+  .project-info{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    align-items:start;
+  }
+
+  .project-info h2{
+    font-size:clamp(1.45rem,7vw,2rem);
+    line-height:.92;
+    overflow-wrap:normal;
+  }
+
+  .project-info p{
+    max-width:120px;
+    font-size:9px;
+  }
+
+  .contact-grid a{
+    display:grid;
+    grid-template-columns:minmax(72px,auto) minmax(0,1fr) auto;
+    align-items:center;
+    column-gap:12px;
+  }
+
+  .contact-grid span{
+    white-space:normal;
+  }
+
+  .contact-grid a{
+    overflow-wrap:anywhere;
+  }
+
+  .contact-big{
+    max-width:100%;
+    white-space:normal;
+  }
+}
+
+@media(max-width:420px){
+  .header{
+    padding-left:14px;
+    padding-right:14px;
+  }
+
+  .logo{font-size:18px}
+
+  .header-contact{
+    max-width:145px;
+    text-align:center;
+    white-space:normal;
+    line-height:1.2;
+  }
+
+  .hero,.section,footer{
+    padding-left:14px;
+    padding-right:14px;
+  }
+
+  .hero h1{
+    font-size:clamp(2.7rem,14.5vw,4.8rem);
+  }
+
+  .about h2,.contact h2{
+    font-size:clamp(2.55rem,13vw,4.5rem);
+  }
+
+  .contact-grid a{
+    grid-template-columns:1fr;
+    gap:7px;
+    padding:21px 0;
+  }
+
+  .contact-grid span{
+    font-size:8px;
+  }
+
+  .contact-grid a{
+    font-size:14px;
+  }
+
+  .project-info{
+    grid-template-columns:1fr;
+    gap:9px;
+  }
+
+  .project-info p{
+    max-width:100%;
+    text-align:left;
+  }
+
+  .frame-placeholder span{
+    font-size:clamp(2.7rem,15vw,4.5rem);
+  }
+}
+
+@media(max-width:340px){
+  .header-contact{
+    font-size:8px;
+    max-width:120px;
+  }
+
+  .hero h1{
+    font-size:2.55rem;
+  }
+
+  .about h2,.contact h2{
+    font-size:2.45rem;
+  }
+
+  .hero-text,.about-copy p{
+    font-size:13px;
+  }
+
+  .project-info h2{
+    font-size:1.45rem;
+  }
+}
+
+
+/* =========================================================
+   V5 — CUSTOM VIDEO PLAYER
+   ========================================================= */
+
+.video-card{
+  position:relative;
+  overflow:hidden;
+  background:#0b0b0a;
+  isolation:isolate;
+}
+.video-card .portfolio-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  max-width:none;
+  object-fit:cover;
+  display:block;
+  background:#111;
+}
+.video-card .video-shade{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(to bottom,rgba(0,0,0,.15),transparent 35%,rgba(0,0,0,.72));
+  transition:opacity .35s;
+}
+.video-card .frame-placeholder{
+  z-index:1;
+  transition:opacity .35s;
+}
+.video-card.has-video .frame-placeholder{
+  opacity:0;
+  pointer-events:none;
+}
+.video-label{
+  position:absolute;
+  left:22px;
+  right:22px;
+  bottom:76px;
+  z-index:4;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  pointer-events:none;
+  color:#fff;
+  font-size:10px;
+  letter-spacing:2px;
+}
+.video-label b{font-weight:600}
+.video-center{
+  position:absolute;
+  z-index:5;
+  left:50%;
+  top:50%;
+  width:82px;
+  height:82px;
+  transform:translate(-50%,-50%);
+  border:1px solid rgba(255,255,255,.75);
+  border-radius:50%;
+  background:rgba(255,90,31,.94);
+  color:#fff;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  transition:transform .35s,opacity .35s,background .35s;
+}
+.video-center span{font-size:15px;margin-left:3px}
+.video-center:hover{transform:translate(-50%,-50%) scale(1.08);background:var(--orange2)}
+.video-card.is-playing .video-center{opacity:0;pointer-events:none}
+.video-controls{
+  position:absolute;
+  z-index:6;
+  left:16px;
+  right:16px;
+  bottom:15px;
+  height:43px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:5px 7px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:10px;
+  background:rgba(10,10,9,.68);
+  backdrop-filter:blur(15px);
+  opacity:0;
+  transform:translateY(7px);
+  transition:opacity .3s,transform .3s;
+}
+.video-card:hover .video-controls,
+.video-card:focus-within .video-controls,
+.video-card.controls-visible .video-controls,
+.video-card.is-playing:hover .video-controls{
+  opacity:1;
+  transform:none;
+}
+.control-btn{
+  flex:0 0 auto;
+  width:31px;
+  height:31px;
+  border:0;
+  background:transparent;
+  color:#fff;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  border-radius:6px;
+  font-size:12px;
+}
+.control-btn:hover{background:rgba(255,255,255,.13);color:var(--orange)}
+.video-progress{
+  position:relative;
+  height:5px;
+  flex:1 1 auto;
+  min-width:40px;
+  border-radius:10px;
+  background:rgba(255,255,255,.25);
+  cursor:pointer;
+  overflow:hidden;
+}
+.video-progress-fill{
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:0;
+  border-radius:inherit;
+  background:var(--orange);
+}
+.video-time{
+  flex:0 0 auto;
+  min-width:74px;
+  color:#ddd;
+  font-size:9px;
+  letter-spacing:.5px;
+  text-align:right;
+  font-variant-numeric:tabular-nums;
+}
+.video-card.is-fullscreen{
+  background:#000;
+}
+.video-card.is-fullscreen .portfolio-video{
+  object-fit:contain;
+}
+.video-card.is-fullscreen .video-controls{
+  left:25px;
+  right:25px;
+  bottom:22px;
+}
+.video-card.is-fullscreen .video-label{
+  bottom:92px;
+}
+.video-card.is-fullscreen .video-center{
+  width:90px;
+  height:90px;
+}
+.video-card.is-fullscreen .video-shade{
+  background:linear-gradient(to bottom,rgba(0,0,0,.25),transparent 30%,rgba(0,0,0,.8));
+}
+
+/* Native fullscreen: the card itself becomes the player */
+.video-card:fullscreen,
+.video-card:-webkit-full-screen{
+  width:100vw;
+  height:100vh;
+  background:#000;
+}
+.video-card:fullscreen .portfolio-video,
+.video-card:-webkit-full-screen .portfolio-video{
+  object-fit:contain;
+}
+.video-card:fullscreen .video-controls,
+.video-card:-webkit-full-screen .video-controls{
+  opacity:1;
+  transform:none;
+  left:28px;
+  right:28px;
+  bottom:25px;
+}
+.video-card:fullscreen .video-label,
+.video-card:-webkit-full-screen .video-label{
+  bottom:105px;
+}
+.video-card:fullscreen .video-center,
+.video-card:-webkit-full-screen .video-center{
+  width:92px;height:92px;
+}
+
+/* Touch devices: controls remain available and larger */
+@media (hover:none),(pointer:coarse){
+  .video-controls{
+    opacity:1;
+    transform:none;
+  }
+  .video-center{
+    width:70px;
+    height:70px;
+  }
+  .control-btn{
+    width:36px;
+    height:36px;
+  }
+}
+
+/* Mobile controls */
+@media(max-width:600px){
+  .video-label{
+    left:14px;
+    right:14px;
+    bottom:68px;
+    font-size:8px;
+    gap:10px;
+  }
+  .video-controls{
+    left:9px;
+    right:9px;
+    bottom:9px;
+    gap:5px;
+    height:42px;
+    padding:4px;
+  }
+  .video-time{
+    min-width:62px;
+    font-size:8px;
+  }
+  .video-progress{min-width:30px}
+}
+@media(max-width:360px){
+  .video-time{display:none}
+  .video-controls{gap:3px}
+}
