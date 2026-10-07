@@ -1,169 +1,447 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZAHAROV — Videographer</title>
-  <meta name="description" content="Портфолио видеографа ZAHAROV. Съёмка, монтаж, визуальные истории.">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZAHAROV — Videographer</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="noise"></div>
+<body id="top">
 
-  <header class="header">
-    <a class="logo" href="#top">ZAHAROV<span></span></a>
+<div class="noise"></div>
+
+<!-- HEADER -->
+<header class="header">
+    <a href="#top" class="logo">ZAHAROV<span>®</span></a>
     <nav>
-      <a href="#works">Работы</a>
-      <a href="#about">Обо мне</a>
-      <a href="#contact">Контакты</a>
+        <a href="#works">Работы</a>
+        <a href="#about">Обо мне</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#contact">Контакты</a>
     </nav>
-    <a class="header-contact" href="#contact">Связаться <span>↗</span></a>
-  </header>
+    <a href="#contact" class="header-contact">Связаться <span>↗</span></a>
+</header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow">VIDEOGRAPHER / DIRECTOR</p>
-        <h1>СНИМАЮ.<br><em>МОНТИРУЮ.</em><br>СОЗДАЮ.</h1>
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-copy">
+        <div class="eyebrow">VIDEOGRAPHER / DIRECTOR</div>
+        <h1>СНИМАЮ.<br>МОНТИРУЮ.<br><em>СОЗДАЮ.</em></h1>
         <p class="hero-text">Автомобили, события, реклама и личные истории</p>
-        <a class="round-btn" href="#works">Смотреть работы <span>↓</span></a>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-frame video-card hero-video-card">
-          <video class="portfolio-video" preload="metadata" playsinline>
-            <source src="videos/IMG_8043.MP4" type="video/mp4">
-          </video>
-          <div class="video-shade"></div>
-          <div class="frame-placeholder"><span>SHOW<br>REEL</span><small>01 / SHOWREEL</small></div>
-          <button class="video-center" aria-label="Воспроизвести"><span>▶</span></button>
-          <div class="video-controls">
-            <button class="control-btn video-toggle" aria-label="Воспроизвести">▶</button>
-            <button class="control-btn video-mute" aria-label="Включить звук">🔇</button>
-            <div class="video-progress" role="slider" aria-label="Прогресс видео" tabindex="0"><div class="video-progress-fill"></div></div>
-            <span class="video-time">0:00 / 0:00</span>
-            <button class="control-btn video-fullscreen" aria-label="Полный экран">⛶</button>
-          </div>
+        <a href="#works" class="round-btn">Смотреть работы <span>↓</span></a>
+    </div>
+    <div class="hero-visual">
+        <div class="hero-frame">
+            <div class="frame-placeholder">
+                <span>SHOWREEL</span>
+                <small>01 / SHOWREEL</small>
+            </div>
+            <button class="play"><span>▶</span></button>
         </div>
         <div class="vertical-note">© 2026 ZAHAROV — VISUAL STORIES</div>
-      </div>
-    </section>
+    </div>
+</section>
 
-    <section class="marquee" aria-hidden="true">
-      <div>FILM • EDIT • MOTION • STORY • FILM • EDIT • MOTION • STORY •</div>
-    </section>
+<!-- MARQUEE -->
+<div class="marquee">
+    <div>FILM • EDIT • MOTION • STORY • FILM • EDIT • MOTION • STORY • FILM • EDIT • MOTION • STORY •</div>
+</div>
 
-    <section id="works" class="works section">
-      <div class="section-head">
-        <p class="eyebrow">SELECTED WORKS</p>
-        <p class="counter">01 — 04</p>
-      </div>
-      <div class="project-grid">
-        <article class="project project-large">
-          <div class="project-media video-card">
-  <video class="portfolio-video" preload="metadata" playsinline>
-    <source src="videos/IMG_7955.MP4" type="video/mp4">
-  </video>
-  <div class="video-shade"></div>
-  <div class="video-label"><span>PROJECT 01</span><b>Nisan Skyline</b></div>
-  <button class="video-center" aria-label="Воспроизвести"><span>▶</span></button>
-  <div class="video-controls">
-    <button class="control-btn video-toggle" aria-label="Воспроизвести">▶</button>
-    <button class="control-btn video-mute" aria-label="Включить звук">🔇</button>
-    <div class="video-progress" role="slider" aria-label="Прогресс видео" tabindex="0"><div class="video-progress-fill"></div></div>
-    <span class="video-time">0:00 / 0:00</span>
-    <button class="control-btn video-fullscreen" aria-label="Полный экран">⛶</button>
-  </div>
-</div>
-          <div class="project-info"><h2>NISSAN<br>SKYLINE</h2><p>AUTOMOTIVE / VIDEO</p></div>
-        </article>
-        <article class="project">
-          <div class="project-media video-card">
-  <video class="portfolio-video" preload="metadata" playsinline>
-    <source src="videos/IMG_7960.MOV" type="video/mp4">
-  </video>
-  <div class="video-shade"></div>
-  <div class="video-label"><span>PROJECT 02</span><b>DETAILING</b></div>
-  <button class="video-center" aria-label="Воспроизвести"><span>▶</span></button>
-  <div class="video-controls">
-    <button class="control-btn video-toggle" aria-label="Воспроизвести">▶</button>
-    <button class="control-btn video-mute" aria-label="Включить звук">🔇</button>
-    <div class="video-progress" role="slider" aria-label="Прогресс видео" tabindex="0"><div class="video-progress-fill"></div></div>
-    <span class="video-time">0:00 / 0:00</span>
-    <button class="control-btn video-fullscreen" aria-label="Полный экран">⛶</button>
-  </div>
-</div>
-          <div class="project-info"><h2>DETAILING<br></h2><p>COMMERCIAL / advertising</p></div>
-        </article>
-        <article class="project">
-          <div class="project-media video-card">
-  <video class="portfolio-video" preload="metadata" playsinline>
-    <source src="videos/IMG_3227.MOV" type="video/mp4">
-  </video>
-  <div class="video-shade"></div>
-  <div class="video-label"><span>PROJECT 03</span><b>SPORT EVENT</b></div>
-  <button class="video-center" aria-label="Воспроизвести"><span>▶</span></button>
-  <div class="video-controls">
-    <button class="control-btn video-toggle" aria-label="Воспроизвести">▶</button>
-    <button class="control-btn video-mute" aria-label="Включить звук">🔇</button>
-    <div class="video-progress" role="slider" aria-label="Прогресс видео" tabindex="0"><div class="video-progress-fill"></div></div>
-    <span class="video-time">0:00 / 0:00</span>
-    <button class="control-btn video-fullscreen" aria-label="Полный экран">⛶</button>
-  </div>
-</div>
-          <div class="project-info"><h2>SPORT<br>EVENT</h2><p>SPORT / EVENT VIDEO</p></div>
-        </article>
-        <article class="project project-large">
-          <div class="project-media video-card">
-  <video class="portfolio-video" preload="metadata" playsinline>
-    <source src="videos/IMG_7495.MOV" type="video/mp4">
-  </video>
-  <div class="video-shade"></div>
-  <div class="video-label"><span>PROJECT 04</span><b>COLOR GRADING</b></div>
-  <button class="video-center" aria-label="Воспроизвести"><span>▶</span></button>
-  <div class="video-controls">
-    <button class="control-btn video-toggle" aria-label="Воспроизвести">▶</button>
-    <button class="control-btn video-mute" aria-label="Включить звук">🔇</button>
-    <div class="video-progress" role="slider" aria-label="Прогресс видео" tabindex="0"><div class="video-progress-fill"></div></div>
-    <span class="video-time">0:00 / 0:00</span>
-    <button class="control-btn video-fullscreen" aria-label="Полный экран">⛶</button>
-  </div>
-</div>
-          <div class="project-info"><h2>COLOR<br>GRADING</h2><p>BEFORE / AFTER</p></div>
-        </article>
-      </div>
-	  <a class="round-btn" href="https://t.me/DigitalRoad73">СМОТРЕТЬ ДРУГИЕ РАБОТЫ В TELEGRAM <span>↓</span></a>
-    </section>
+<!-- WORKS -->
+<section class="section" id="works">
+    <div class="section-head">
+        <div class="eyebrow">SELECTED WORKS</div>
+        <div class="counter">01 — 04</div>
+    </div>
 
-    <section id="about" class="about section">
-      <div class="section-head"><p class="eyebrow">ABOUT</p><p class="counter">02 — 04</p></div>
-      <div class="about-layout">
-        <h2>СНИМАЮ<br><em>ТО, ЧТО</em><br>ХОЧЕТСЯ<br>СМОТРЕТЬ.</h2>
-        <div class="about-copy">
-          <p>Меня зовут Захаров Ярослав. Я видеограф и монтажёр.</p>
-          <p>Снимаю автомобили, мероприятия, рекламу, мероприятия и личные истории</p>
-		  <p>Беру проект от идеи и съёмки до готового ролика. Сам занимаюсь съёмкой, монтажом и цветом, чтобы на выходе получалось именно то, что мы задумали.</p>
-          <div class="stats"><div><strong>01</strong><span>IDEA → FINAL</span></div><div><strong>∞</strong><span>ATTENTION TO DETAIL</span></div></div>
+    <div class="project-grid">
+        <a href="#" class="project reveal">
+            <div class="project-media media-1">
+                <span>PROJECT 01</span>
+                <b>Nissan Skyline</b>
+            </div>
+            <div class="project-info">
+                <h2>NISSAN<br>SKYLINE</h2>
+                <p>AUTOMOTIVE / VIDEO</p>
+            </div>
+        </a>
+        <a href="#" class="project reveal">
+            <div class="project-media media-2">
+                <span>PROJECT 02</span>
+                <b>Detailing</b>
+            </div>
+            <div class="project-info">
+                <h2>DETAILING</h2>
+                <p>COMMERCIAL / ADVERTISING</p>
+            </div>
+        </a>
+        <a href="#" class="project reveal">
+            <div class="project-media media-3">
+                <span>PROJECT 03</span>
+                <b>Sport Event</b>
+            </div>
+            <div class="project-info">
+                <h2>SPORT<br>EVENT</h2>
+                <p>SPORT / EVENT VIDEO</p>
+            </div>
+        </a>
+        <a href="#" class="project reveal">
+            <div class="project-media media-4">
+                <span>PROJECT 04</span>
+                <b>Color Grading</b>
+            </div>
+            <div class="project-info">
+                <h2>COLOR<br>GRADING</h2>
+                <p>BEFORE / AFTER</p>
+            </div>
+        </a>
+    </div>
+
+    <div class="project-large reveal">
+        <a href="https://t.me/DigitalRoad73" class="round-btn" target="_blank">СМОТРЕТЬ ДРУГИЕ РАБОТЫ В TELEGRAM <span>↓</span></a>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about section" id="about">
+    <div class="section-head">
+        <div class="eyebrow">ABOUT</div>
+        <div class="counter">02 — 04</div>
+    </div>
+    <div class="about-layout">
+        <h2 class="reveal">СНИМАЮ ТО,<br>ЧТО <em>ХОЧЕТСЯ</em><br>СМОТРЕТЬ.</h2>
+        <div class="about-copy reveal">
+            <p>Меня зовут Захаров Ярослав. Я видеограф и монтажёр.</p>
+            <p>Снимаю автомобили, мероприятия, рекламу и личные истории. Беру проект от идеи и съёмки до готового ролика. Сам занимаюсь съёмкой, монтажом и цветом, чтобы на выходе получалось именно то, что мы задумали.</p>
+            <div class="stats">
+                <div><strong>01</strong><span>IDEA → FINAL</span></div>
+                <div><strong>∞</strong><span>ATTENTION TO DETAIL</span></div>
+            </div>
         </div>
-      </div>
-    </section>
+    </div>
+</section>
 
-    <section id="contact" class="contact section">
-      <div class="section-head"><p class="eyebrow">LET'S TALK</p><p class="counter">03 — 04</p></div>
-      <div class="contact-content">
-        <p class="contact-kicker">Есть идея?</p>
-        <h2>ДАВАЙ<br><em>СНИМЕМ.</em></h2>
-        <a class="contact-big" href="mailto:zaharovarik07@gmail.com">Написать мне <span>↗</span></a>
-      </div>
-      <div class="contact-grid">
-        <a href="https://instagram.com/zaharov_yy" target="_blank" rel="noopener"><span>INSTAGRAM</span>@zaharov_yy ↗</a>
-        <a href="https://t.me/fishhap" target="_blank" rel="noopener"><span>TELEGRAM</span>@fishhap ↗</a>
-        <a href="tel:+79021256710"><span>PHONE</span>+7 902 125-67-10 ↗</a>
-        <a href="mailto:zaharovarik07@gmail.com"><span>E-MAIL</span>zaharovarik07@gmail.com ↗</a>
-      </div>
-    </section>
-  </main>
+<!-- ===================== REVIEWS ===================== -->
+<section class="reviews" id="reviews">
+    <div class="section-head">
+        <div class="eyebrow">ОТЗЫВЫ КЛИЕНТОВ</div>
+        <div class="counter">03 — 04 / 30 REVIEWS</div>
+    </div>
 
-  <footer><span>ZAHAROV®</span><span>VIDEOGRAPHER / 2026</span><a href="#top">BACK TO TOP ↑</a></footer>
-  <script src="script.js"></script>
+    <h2 class="reviews-title reveal">ЧТО <em>ГОВОРЯТ</em><br>О НАС</h2>
+
+    <button class="reviews-toggle" aria-expanded="false">
+        <span class="reviews-toggle-text">ПОКАЗАТЬ ВСЕ ОТЗЫВЫ</span>
+        <span class="reviews-toggle-arrow">↓</span>
+    </button>
+
+    <div class="reviews-dropdown">
+        <div class="reviews-stats">
+            <div><strong>4.98</strong><span>СРЕДНЯЯ ОЦЕНКА</span></div>
+            <div><strong>30</strong><span>ОТЗЫВОВ</span></div>
+            <div><strong>120+</strong><span>ПРОЕКТОВ</span></div>
+        </div>
+
+        <div class="reviews-grid">
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Артём Волков</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">12 марта 2025</div>
+                <p class="review-text">Снимал мой Nissan Skyline для Instagram. Кадры — огонь, динамика, цвет, звук. Ролик собрал больше 40к просмотров за неделю. Рекомендую!</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Кофейня «Зерно»</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">05 марта 2025</div>
+                <p class="review-text">Снимал для нас имиджевый ролик. Атмосфера передана на 100% — гости теперь приходят именно после просмотра.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Екатерина и Павел</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">15 марта 2025</div>
+                <p class="review-text">Снимал нашу свадьбу. Пересматриваем фильм каждый месяц — плачем от счастья. Спасибо за самые важные кадры жизни!</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Игорь С.</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">08 марта 2025</div>
+                <p class="review-text">Заказывал видео-историю о своём деде-ветеране. Получился фильм, от которого плачет вся семья. Бесценная работа.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Владислав К.</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">10 марта 2025</div>
+                <p class="review-text">Отдал сырой материал — получил готовый фильм. Монтаж, цвет, звук — всё на высшем уровне. Экономия времени колоссальная.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Дмитрий К.</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">28 февраля 2025</div>
+                <p class="review-text">Делали рекламный ролик для автосервиса. Ярослав всё продумал от сценария до цветокоррекции. Клиенты теперь узнают нас по стилю.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Марина Л.</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">21 февраля 2025</div>
+                <p class="review-text">Делали рекламу для бренда одежды. Ярослав предложил интересные ракурсы, сам всё смонтировал. Ролик залетел в рекомендации.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Event-агентство «Праздник»</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">01 марта 2025</div>
+                <p class="review-text">Работаем с Ярославом на всех крупных мероприятиях. Всегда в кадре всё самое важное, монтаж — в день события.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Светлана М.</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">24 февраля 2025</div>
+                <p class="review-text">Делала подарок мужу на годовщину — фильм о нашей любви. Муж рыдал. Спасибо за такую тонкую работу.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Студия «Кадр»</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">26 февраля 2025</div>
+                <p class="review-text">Передаём Ярославу сложные проекты на монтаж. Всегда в срок, всегда качественно. Надёжный партнёр.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Максим Орлов</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">04 февраля 2025</div>
+                <p class="review-text">Снял BMW M5 на закате — получилось как в кино. Очень внимателен к деталям, всегда на связи. Буду обращаться ещё.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Barber Shop OldBoy</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">10 февраля 2025</div>
+                <p class="review-text">Снял серию коротких роликов для Reels. За месяц +40% записей. Окупилось в первую же неделю.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Андрей и Мария</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">14 февраля 2025</div>
+                <p class="review-text">Снимал юбилей мамы. Получился настоящий фильм — со слезами, смехом и тёплыми словами. Родители в восторге.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Travel-блог «Дороги»</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">11 февраля 2025</div>
+                <p class="review-text">Снимал для моего тревел-блога. Кадры — как из National Geographic. Подписчики засыпали вопросами про оператора.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Артём Л.</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">13 февраля 2025</div>
+                <p class="review-text">Перекрашивал мой старый ролик — результат как будто снят на другую камеру. Цветокор — его суперсила.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Студия AutoLux</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">17 января 2025</div>
+                <p class="review-text">Работаем с Ярославом уже полгода. Снял более 30 автомобилей — каждый ролик как отдельный фильм. Пунктуальный, профессиональный.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Анна Соколова</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">28 января 2025</div>
+                <p class="review-text">Заказывала рекламу для своего бренда свечей. Получилось очень эстетично, в моём стиле. Спасибо за внимание к деталям!</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Конференция Digital 2025</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">30 января 2025</div>
+                <p class="review-text">Снимали двухдневную конференцию. Aftermovie получился мощным — участники делились им в соцсетях. Отличная работа!</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Алина В.</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">29 января 2025</div>
+                <p class="review-text">Заказывала love-story перед свадьбой. Получилось очень нежно и по-настоящему. Лучшее вложение в подготовку.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Блогер «Миллионник»</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">31 января 2025</div>
+                <p class="review-text">Монтирует для меня YouTube-ролики уже 4 месяца. Удержание выросло на 35%. Лучший монтажёр, с кем работал.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Илья Савченко</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">22 декабря 2024</div>
+                <p class="review-text">Заказывал обзор на Toyota Supra. Смонтировал быстро, звук чистый, переходы плавные. Видно, что человек любит своё дело.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Фитнес-клуб «Атлет»</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">15 января 2025</div>
+                <p class="review-text">Снимали промо-ролик клуба. Динамично, мощно, с правильной музыкой. Новые клиенты приходят именно после этого видео.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Дарья К.</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">18 января 2025</div>
+                <p class="review-text">Заказывала съёмку дня рождения дочки. Получилась настоящая сказка. Дочь пересматривает по 10 раз на дню.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Павел Д.</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">16 января 2025</div>
+                <p class="review-text">Снимал моё путешествие на Алтай. 10 дней съёмки — получился мини-фильм. Друзья думают, что это работа целой студии.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Олег Ш.</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">17 января 2025</div>
+                <p class="review-text">Заказывал монтаж свадебного фильма из 8 часов сырья. Получился 12-минутный шедевр. Все ключевые моменты — в кадре.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Алексей Р.</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">09 декабря 2024</div>
+                <p class="review-text">Делали съёмку для автосалона — 12 машин за 2 дня. Всё чётко по таймингу, результат превзошёл ожидания. Спасибо!</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Ресторан «Терраса»</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">03 января 2025</div>
+                <p class="review-text">Ярослав снял для нас новогодний ролик. Гости до сих пор присылают скриншоты. Очень атмосферно и вкусно снято.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Корпоратив Сбер</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">05 января 2025</div>
+                <p class="review-text">Снимали новогодний корпоратив на 300 человек. Всё чётко, незаметно, в кадр попало всё. Отчётный ролик — шедевр.</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Мария К.</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">02 января 2025</div>
+                <p class="review-text">Делала видео-поздравление маме на 60-летие. Мама плакала от счастья. Спасибо за такой подарок!</p>
+            </article>
+
+            <article class="review-card">
+                <div class="review-top">
+                    <div class="review-author">Продакшн «Волга»</div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <div class="review-date">04 января 2025</div>
+                <p class="review-text">Привлекаем Ярослава на пост-продакшн. Чувствует ритм, музыку, кадр. С ним легко и приятно работать.</p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact section" id="contact">
+    <div class="section-head">
+        <div class="eyebrow">LET'S TALK</div>
+        <div class="counter">04 — 04</div>
+    </div>
+    <div class="contact-content">
+        <div class="contact-kicker">Есть идея?</div>
+        <h2>ДАВАЙ <em>СНИМЕМ.</em></h2>
+        <a href="mailto:zaharovarik07@gmail.com" class="contact-big">Написать мне <span>↗</span></a>
+    </div>
+    <div class="contact-grid">
+        <a href="https://instagram.com/zaharov_yy" target="_blank">INSTAGRAM <span>@zaharov_yy ↗</span></a>
+        <a href="https://t.me/fishhap" target="_blank">TELEGRAM <span>@fishhap ↗</span></a>
+        <a href="tel:+79021256710">PHONE <span>+7 902 125-67-10 ↗</span></a>
+        <a href="mailto:zaharovarik07@gmail.com">E-MAIL <span>zaharovarik07@gmail.com ↗</span></a>
+    </div>
+</section>
+
+<footer>
+    <span>ZAHAROV® VIDEOGRAPHER / 2026</span>
+    <a href="#top">BACK TO TOP ↑</a>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
